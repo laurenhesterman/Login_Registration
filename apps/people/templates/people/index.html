@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+    body {
+        padding: 2em;
+    }
+    
+    
+    </style>
+    <title>Log in or Register</title>
+</head>
+<body>
+        <h1>Register Here</h1>
+
+            <form action="/create", method="post">
+                {% csrf_token %}
+                
+                <label for="first_name" >First Name</label>
+                <input type="text" id="first_name" name="first_name">
+                
+                <br>
+                <label for="last_name" >Last Name</label>
+                <input type="text" id="last_name" name="last_name">
+                
+        
+                <br>
+                <label for="email" >Input Email</label>
+                <input type="text" id="email" name="email">
+        
+                <br>
+                <label for="password1" >Password</label>
+                <input type="password" id="password1" name="password1">
+        
+                <br>
+                <label for="password2" >Confirm Password</label>
+                <input type="password" id="password2" name="password2">
+                
+                <br>
+                <button type="submit">Submit</button>
+        </form>
+        <h1>Login Here</h1>
+            <form action="/login", method="post">
+                {% csrf_token %}
+                
+                
+                <label for="email" >Email</label>
+                <input type="text" id="email" name="email">
+                
+                <br>
+                <label for="password" >Password</label>
+                <input type="password" id="password" name="password">
+                
+                
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+
+        <!-- for loop to iterate through errors -->
+       
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p >{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    
+</body>
+</html>
